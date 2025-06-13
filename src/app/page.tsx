@@ -222,28 +222,28 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <p className="text-lg text-muted-foreground">
-            Hi, I'm Artin Davari, a passionate software engineer and
+            Hi, I&apos;m Artin Davari, a passionate software engineer and
             cybersecurity enthusiast who recently graduated from California
             Polytechnic State University, San Luis Obispo with a Bachelor of
-            Science in Computer Science and a 3.8 GPA. This fall, I'll be
-            pursuing my Master's degree in Cybersecurity at Georgia Institute of
-            Technology, where I'm excited to deepen my expertise in security
-            systems and network protection.
+            Science in Computer Science and a 3.8 GPA. This fall, I&apos;ll be
+            pursuing my Master&apos;s degree in Cybersecurity at Georgia
+            Institute of Technology, where I&apos;m excited to deepen my
+            expertise in security systems and network protection.
             <br />
             <br />
             My journey in computer science has been driven by a fascination with
             both building innovative solutions and protecting them from evolving
-            threats. Throughout my academic career, I've maintained strong
-            performance, earning Dean's List recognition for 10 quarters and
-            President's List honors for 3 years. My coursework has provided me
-            with a solid foundation in system security, cryptography, web
-            security, and software engineering, which I've applied through
-            hands-on internship experiences.
+            threats. Throughout my academic career, I&apos;ve maintained strong
+            performance, earning Dean&apos;s List recognition for 10 quarters
+            and President&apos;s List honors for 3 years. My coursework has
+            provided me with a solid foundation in system security,
+            cryptography, web security, and software engineering, which
+            I&apos;ve applied through hands-on internship experiences.
             <br />
             <br />
-            I've had the privilege of working with diverse organizations, from
-            my recent REU-funded research internship with the Oregon Network
-            Research Group, where I developed real-time network data
+            I&apos;ve had the privilege of working with diverse organizations,
+            from my recent REU-funded research internship with the Oregon
+            Network Research Group, where I developed real-time network data
             visualization applications, to my software engineering roles at
             companies like Nebulon (acquired by Nvidia) and CDK Global. These
             experiences have strengthened my skills in languages like Python,
@@ -251,23 +251,25 @@ export default function Home() {
             React and Node.js.
             <br />
             <br />
-            Beyond the technical realm, I'm someone who believes in the power of
-            technology to create positive impact. My early experience
+            Beyond the technical realm, I&apos;m someone who believes in the
+            power of technology to create positive impact. My early experience
             refurbishing computers for underprivileged children at Equal
             Opportunities Technology sparked my commitment to using technology
-            as a force for good. I enjoy tackling complex problems, whether it's
-            developing full-stack applications, automating cybersecurity
-            vulnerability detection, or visualizing network data patterns.
+            as a force for good. I enjoy tackling complex problems, whether
+            it&apos;s developing full-stack applications, automating
+            cybersecurity vulnerability detection, or visualizing network data
+            patterns.
             <br />
             <br />
-            When I'm not coding or studying security protocols, you'll find me
-            playing basketball, diving into the latest video games, building
-            custom computers, or strategizing over a chess match. I'm always
-            eager to learn new technologies, take on challenging projects, and
-            collaborate with fellow developers and security professionals. I'm
-            excited about the intersection of software development and
-            cybersecurity, and I look forward to contributing to innovative
-            solutions that help protect our increasingly connected world.
+            When I&apos;m not coding or studying security protocols, you&apos;ll
+            find me playing basketball, diving into the latest video games,
+            building custom computers, or strategizing over a chess match.
+            I&apos;m always eager to learn new technologies, take on challenging
+            projects, and collaborate with fellow developers and security
+            professionals. I&apos;m excited about the intersection of software
+            development and cybersecurity, and I look forward to contributing to
+            innovative solutions that help protect our increasingly connected
+            world.
           </p>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import ContactForm from "./components/ContactForm";
 
 const projects = [
   {
@@ -197,6 +198,63 @@ const technicalCompetencies = [
   },
 ];
 
+const workExperience = [
+  {
+    company: "Oregon Network Research Group - University of Oregon",
+    position: "REU-funded Summer Internship",
+    duration: "June - Sept 2024",
+    location: "Remote",
+    skills: [
+      "Python",
+      "Plotly",
+      "Data Visualization",
+      "Network Analysis",
+      "Data Processing",
+    ],
+    description: [
+      "Developed real-time network data visualization applications using Plotly",
+      "Collaborated with research team to analyze and present network security patterns",
+      "Implemented automated data processing pipelines for network traffic analysis",
+      "Created interactive dashboards for visualizing complex network metrics",
+    ],
+  },
+  {
+    company: "Nebulon (acquired by Nvidia)",
+    position: "Software Engineering Intern",
+    duration: "June - August 2023",
+    location: "Fremont, CA",
+    skills: ["Go", "Cybersecurity", "Automation", "Performance Testing"],
+    description: [
+      "Developed an internal application to automate the process of finding CVE cybersecurity vulnerabilities within imported packages in company repositories",
+      "Created an application using Go to test different logging packages and determine optimal package efficiency",
+      "Implemented automated security scanning pipeline that reduced manual vulnerability assessment time by 75%",
+    ],
+  },
+  {
+    company: "CDK Global",
+    position: "Software Engineering Intern",
+    duration: "June - August 2022",
+    location: "San Jose, CA",
+    skills: [
+      "React",
+      "PHP",
+      "JavaScript",
+      "PostgreSQL",
+      "Full-Stack Development",
+      "Database Management",
+      "Git",
+      "CI/CD",
+    ],
+    description: [
+      "Developed and maintained automotive dealership management systems",
+      "Participated in full-stack development of web applications",
+      "Collaborated with senior developers on system improvements",
+      "Developed a dashboard to automate the process of adding, removing, editing, and looking up data entries in a Git repository",
+      "Developed a customer relational database, built a user-friendly dashboard to display its contents, which allowed for filtering, adding, and editing data entries",
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -218,7 +276,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="about" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <p className="text-lg text-muted-foreground">
@@ -271,6 +329,48 @@ export default function Home() {
             innovative solutions that help protect our increasingly connected
             world.
           </p>
+        </div>
+      </section>
+
+      {/* Work Experience Section */}
+      <section id="experience" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8">Work Experience</h2>
+          <div className="space-y-8">
+            {workExperience.map((job, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-primary">
+                      {job.position}
+                    </h3>
+                    <p className="text-lg font-medium italic">{job.company}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-muted-foreground block">
+                      {job.duration}
+                    </span>
+                    <span className="text-muted-foreground text-sm">
+                      {job.location}
+                    </span>
+                  </div>
+                </div>
+                <ul className="list-disc pl-5 space-y-2">
+                  {job.description.map((item, idx) => (
+                    <li key={idx} className="text-muted-foreground max-w-2xl">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4">
+                  <span className="text-sm font-medium">Skills: </span>
+                  <span className="text-sm text-muted-foreground">
+                    {job.skills.join(" • ")}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -405,8 +505,8 @@ export default function Home() {
       <section id="contact" className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">Contact</h2>
-          <div className="max-w-md mx-auto">
-            {/* Contact form will go here */}
+          <div className="max-w-2xl mx-auto">
+            <ContactForm />
           </div>
         </div>
       </section>

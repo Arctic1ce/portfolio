@@ -70,7 +70,7 @@ const projects = [
   {
     name: "Fantasy Potion Shop API",
     github: "https://github.com/Arctic1ce/artincauldrons",
-    technologies: ["Python, FastAPI, PostgreSQL, SQLAlchemy, Supabase"],
+    technologies: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Supabase"],
     description:
       "Built a comprehensive backend API for a simulated fantasy RPG potion shop that integrates with a live marketplace system. The application manages a complex business simulation where virtual customers purchase potions based on dynamic preferences and market conditions.",
     keyFeatures: [
@@ -255,261 +255,213 @@ const workExperience = [
   },
 ];
 
+type SkillSection = {
+  name: string;
+  [key: string]: string | string[];
+};
+
+const skillsSections = [
+  { title: "Languages", data: languages },
+  { title: "Frameworks", data: frameworks },
+  { title: "Databases", data: databaseTechnologies },
+  { title: "Tools", data: tools },
+  { title: "Security", data: security },
+  { title: "Expertise", data: areasOfExpertise },
+  { title: "Competencies", data: technicalCompetencies },
+] as const;
+
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen p-4 md:p-8 pt-20 md:pt-24">
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            <span className="text-primary">Artin Davari</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
-            Full Stack Developer & Cybersecurity Student
-          </p>
-        </motion.div>
-      </section>
+      <motion.section
+        id="home"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-[80vh] flex flex-col justify-center items-center mb-32 text-center max-w-6xl mx-auto px-4 pt-24"
+      >
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 gradient-text">
+          Artin Davari
+        </h1>
+        <p className="text-3xl md:text-4xl lg:text-5xl text-muted-foreground">
+          Software Engineer & Cybersecurity Student
+        </p>
+      </motion.section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">About Me</h2>
-          <p className="text-lg text-muted-foreground">
-            Hi, I&apos;m Artin Davari, a passionate software engineer and
-            cybersecurity enthusiast who recently graduated from California
-            Polytechnic State University, San Luis Obispo with a Bachelor of
-            Science in Computer Science and a 3.8 GPA. This fall, I&apos;ll be
-            pursuing my Master&apos;s degree in Cybersecurity at Georgia
-            Institute of Technology, where I&apos;m excited to deepen my
-            expertise in security systems and network protection.
-            <br />
-            <br />
-            My journey in computer science has been driven by a fascination with
-            both building innovative solutions and protecting them from evolving
-            threats. Throughout my academic career, I&apos;ve maintained strong
-            performance, earning Dean&apos;s List recognition for 10 quarters
-            and President&apos;s List honors for 3 years. My coursework has
-            provided me with a solid foundation in system security,
-            cryptography, web security, and software engineering, which
-            I&apos;ve applied through hands-on internship experiences.
-            <br />
-            <br />
-            I&apos;ve had the privilege of working with diverse organizations,
-            from my recent REU-funded research internship with the Oregon
-            Network Research Group, where I developed real-time network data
-            visualization applications, to my software engineering roles at
-            companies like Nebulon (acquired by Nvidia) and CDK Global. These
-            experiences have strengthened my skills in languages like Python,
-            Java, JavaScript, Go, and C++, while working with frameworks such as
-            React and Node.js.
-            <br />
-            <br />
-            Beyond the technical realm, I&apos;m someone who believes in the
-            power of technology to create positive impact. My early experience
-            refurbishing computers for underprivileged children at Equal
-            Opportunities Technology sparked my commitment to using technology
-            as a force for good. I enjoy tackling complex problems, whether
-            it&apos;s developing full-stack applications, automating
-            cybersecurity vulnerability detection, or visualizing network data
-            patterns.
-            <br />
-            <br />
-            When I&apos;m not coding or studying security protocols, you&apos;ll
-            find me playing basketball, diving into the latest video games,
-            building custom computers, or strategizing over a chess match.
-            I&apos;m always eager to learn new technologies, take on challenging
-            projects, and collaborate with fellow developers and security
-            professionals. I&apos;m excited about the intersection of software
-            development and cybersecurity, and I look forward to contributing to
-            innovative solutions that help protect our increasingly connected
-            world.
-          </p>
-        </div>
-      </section>
-
-      {/* Work Experience Section */}
-      <section id="experience" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Work Experience</h2>
-          <div className="space-y-8">
-            {workExperience.map((job, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary">
-                      {job.position}
-                    </h3>
-                    <p className="text-lg font-medium italic">{job.company}</p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-muted-foreground block">
-                      {job.duration}
-                    </span>
-                    <span className="text-muted-foreground text-sm">
-                      {job.location}
-                    </span>
-                  </div>
-                </div>
-                <ul className="list-disc pl-5 space-y-2">
-                  {job.description.map((item, idx) => (
-                    <li key={idx} className="text-muted-foreground max-w-2xl">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4">
-                  <span className="text-sm font-medium">Skills: </span>
-                  <span className="text-sm text-muted-foreground">
-                    {job.skills.join(" • ")}
-                  </span>
-                </div>
+      {/* Experience Section */}
+      <motion.section
+        id="experience"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-24 md:mb-32 pt-24"
+      >
+        <h2 className="text-3xl font-bold mb-8 gradient-text">
+          Work Experience
+        </h2>
+        <div className="space-y-8">
+          {workExperience.map((job, index) => (
+            <motion.div
+              key={job.company}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="card-hover p-6 rounded-lg border bg-card hover-lift"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 className="text-xl font-bold">{job.company}</h3>
+                <span className="text-muted-foreground">{job.duration}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-lg mb-2">{job.position}</p>
+              <p className="text-muted-foreground mb-4">{job.location}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {job.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-1 text-sm rounded-full bg-primary/10 text-primary"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                {job.description.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
+      <motion.section
+        id="projects"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-24 md:mb-32 pt-24"
+      >
+        <h2 className="text-3xl font-bold mb-8 gradient-text">Projects</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="card-hover p-6 rounded-lg border bg-card hover-lift"
+            >
+              <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+              <p className="text-muted-foreground mb-4">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-1 text-sm rounded-full bg-primary/10 text-primary"
                   >
-                    {project.name}
-                  </a>
-                </h3>
-                <div className="mt-4">
-                  <p>
-                    <span className="font-semibold">Technologies Used:</span>{" "}
-                    {project.technologies.join(", ")}
-                  </p>
-                </div>
-                <h4 className="text-lg font-semibold mb-2">Description:</h4>
-                <p>{project.description}</p>
-                <div className="mt-4">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="space-y-4">
+                <div>
                   <h4 className="font-semibold mb-2">Key Features:</h4>
-                  <ul className="list-disc pl-5 space-y-1">
-                    {project.keyFeatures.map((feature, idx) => (
-                      <li key={idx}>
-                        <span className="font-semibold">{feature.name}:</span>{" "}
+                  <ul className="space-y-2">
+                    {project.keyFeatures.map((feature) => (
+                      <li key={feature.name} className="text-sm">
+                        <span className="font-medium text-primary">
+                          {feature.name}:
+                        </span>{" "}
                         {feature.description}
                       </li>
                     ))}
                   </ul>
                 </div>
                 {project.technicalHighlights && (
-                  <div className="mt-4">
+                  <div>
                     <h4 className="font-semibold mb-2">
                       Technical Highlights:
                     </h4>
-                    <ul className="list-disc pl-5 space-y-1">
-                      {project.technicalHighlights.map((highlight, idx) => (
-                        <li key={idx}>{highlight}</li>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      {project.technicalHighlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
                       ))}
                     </ul>
                   </div>
                 )}
-                <div className="mt-4">{project.summary}</div>
+                <div className="text-sm text-muted-foreground">
+                  {project.summary}
+                </div>
               </div>
-            ))}
-          </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 text-primary hover:underline"
+              >
+                View on GitHub →
+              </a>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Programming Languages
-                </h3>
-                <p>
-                  <span className="font-semibold">Proficient:</span>{" "}
-                  {languages[0].languages.join(", ")}
-                </p>
-                <p>
-                  <span className="font-semibold">Familiar:</span>{" "}
-                  {languages[1].languages.join(", ")}
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Frameworks & Libraries
-                </h3>
-                <p>{frameworks[0].frameworks.join(", ")}</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Security & Systems
-                </h3>
-                <p>{security[0].security.join(", ")}</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Areas of Expertise
-                </h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  {areasOfExpertise[0].areasOfExpertise.map((area, index) => (
-                    <li key={index}>{area}</li>
+      <motion.section
+        id="skills"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-24 md:mb-32 pt-24"
+      >
+        <h2 className="text-3xl font-bold mb-8 gradient-text">Skills</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {skillsSections.map((section, index) => {
+            const data = section.data[0] as SkillSection;
+            const items = data[Object.keys(data)[1]] as string[];
+
+            return (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="card-hover p-6 rounded-lg border bg-card hover-lift"
+              >
+                <h3 className="text-xl font-bold mb-4">{section.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item: string) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                    >
+                      {item}
+                    </span>
                   ))}
-                </ul>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Database Technologies
-                </h3>
-                <p>{databaseTechnologies[0].databases.join(", ")}</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Developer Tools & Technologies
-                </h3>
-                <p>{tools[0].tools.join(", ")}</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  Technical Competencies
-                </h3>
-                <ul className="list-disc pl-5 space-y-1">
-                  {technicalCompetencies[0].technicalCompetencies.map(
-                    (competency, index) => (
-                      <li key={index}>{competency}</li>
-                    )
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8">Contact</h2>
-          <div className="max-w-2xl mx-auto">
-            <ContactForm />
-          </div>
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-24 md:mb-32 pt-24"
+      >
+        <h2 className="text-3xl font-bold mb-8 gradient-text">Contact Me</h2>
+        <div className="card-hover p-6 rounded-lg border bg-card hover-lift">
+          <ContactForm />
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

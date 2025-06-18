@@ -351,17 +351,17 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="card-hover p-6 rounded-lg border bg-card hover-lift"
+              className="bg-card/50 border border-primary/20 rounded-lg p-6 hover:border-primary/40 hover:bg-card/80 transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-              <p className="text-muted-foreground mb-4">
-                {project.description}
-              </p>
+              <h3 className="text-xl font-bold mb-2 text-primary">
+                {project.name}
+              </h3>
+              <p className="text-foreground/80 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2 py-1 text-sm rounded-full bg-primary/10 text-primary"
+                    className="px-2 py-1 text-sm rounded-full bg-primary/5 text-primary border border-primary/10"
                   >
                     {tech}
                   </span>
@@ -369,31 +369,35 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold mb-2">Key Features:</h4>
+                  <h4 className="font-semibold mb-2 text-primary/90">
+                    Key Features:
+                  </h4>
                   <ul className="space-y-2">
                     {project.keyFeatures.map((feature) => (
                       <li key={feature.name} className="text-sm">
                         <span className="font-medium text-primary">
                           {feature.name}:
                         </span>{" "}
-                        {feature.description}
+                        <span className="text-foreground/70">
+                          {feature.description}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 {project.technicalHighlights && (
                   <div>
-                    <h4 className="font-semibold mb-2">
+                    <h4 className="font-semibold mb-2 text-primary/90">
                       Technical Highlights:
                     </h4>
-                    <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                    <ul className="list-disc list-inside space-y-1 text-sm text-foreground/70">
                       {project.technicalHighlights.map((highlight) => (
                         <li key={highlight}>{highlight}</li>
                       ))}
                     </ul>
                   </div>
                 )}
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-foreground/60 italic">
                   {project.summary}
                 </div>
               </div>
@@ -401,7 +405,7 @@ export default function Home() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 text-primary hover:underline"
+                className="inline-block mt-4 text-primary hover:text-primary/80 transition-colors"
               >
                 View on GitHub →
               </a>

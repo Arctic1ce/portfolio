@@ -7,6 +7,36 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#B8860B", // Dark goldenrod
+          dark: "#8B4513", // Saddle brown
+          light: "#CD853F", // Peru
+        },
+        secondary: {
+          DEFAULT: "#CD853F", // Peru
+          dark: "#8B4513", // Saddle brown
+          light: "#D4C4A8", // Tan
+        },
+        accent: {
+          DEFAULT: "#8B4513", // Saddle brown
+          dark: "#654321", // Dark brown
+          light: "#B8860B", // Dark goldenrod
+        },
+        background: {
+          DEFAULT: "#1A1A1A", // Dark grey
+          light: "#2A2A2A", // Slightly lighter grey
+          lighter: "#333333", // Medium grey
+        },
+        text: {
+          DEFAULT: "#D4C4A8", // Tan
+          muted: "#A9A9A9", // Grey
+          dark: "#8B4513", // Saddle brown
+        },
+      },
+      backgroundImage: {
+        "gradient-text": "linear-gradient(to right, #B8860B, #8B4513)",
+      },
       keyframes: {
         "fade-in": {
           "0%": { opacity: "0" },

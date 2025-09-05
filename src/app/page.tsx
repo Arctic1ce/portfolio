@@ -304,7 +304,7 @@ export default function Home() {
           Artin Davari
         </h1>
         <p className="text-3xl md:text-4xl lg:text-5xl text-muted-foreground">
-          Software Engineer & Cybersecurity Student
+          SWE & Cybersecurity Student
         </p>
       </motion.section>
 

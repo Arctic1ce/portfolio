@@ -200,6 +200,25 @@ const technicalCompetencies = [
 
 const workExperience = [
   {
+    company: "Eridan",
+    position: "Software Engineer Contractor",
+    duration: "June 2025 - Present",
+    location: "Sunnyvale, CA",
+    skills: [
+      "Full Stack Development",
+      "Data Upload Streaming",
+      "CI/CD",
+      "Next.js",
+      "PostgreSQL",
+    ],
+    description: [
+      "Migrated a legacy web application to a modern, scalable, and maintainable codebase using Next.js, Supabase, and Vercel",
+      "Migrated database to accommodate a new version of a radio part which required several hundred lines of a raw PostgreSQL query",
+      "Worked with hardware team to create a custom file upload chunking service using C++",
+      "Developed new features and bug fixes for the application",
+    ],
+  },
+  {
     company: "Oregon Network Research Group - University of Oregon",
     position: "REU-funded Summer Internship",
     duration: "June - Sept 2024",

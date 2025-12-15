@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Snowflake, Flame } from "lucide-react";
@@ -55,7 +56,7 @@ type Snowflake = {
   delay: number;
 };
 
-export default function XMasCard() {
+function XMasCardInner() {
   const [open, setOpen] = useState(false);
   const searchParams = useSearchParams();
   const rawName = searchParams?.get("name")?.trim() ?? "";
@@ -228,5 +229,13 @@ export default function XMasCard() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function XMasCard() {
+  return (
+    <Suspense fallback={null}>
+      <XMasCardInner />
+    </Suspense>
   );
 }

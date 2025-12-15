@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ContactForm from "./components/ContactForm";
+import ContactForm from "../components/ContactForm";
 
 const projects = [
   {
@@ -198,7 +198,16 @@ const technicalCompetencies = [
   },
 ];
 
-const workExperience = [
+type WorkExperience = {
+  company: string;
+  position: string;
+  duration: string;
+  location: string;
+  skills: string[];
+  description: string[];
+};
+
+const workExperience: WorkExperience[] = [
   {
     company: "Eridan",
     position: "Software Engineer Contractor",
@@ -320,7 +329,7 @@ export default function Home() {
           Work Experience
         </h2>
         <div className="space-y-8">
-          {workExperience.map((job, index) => (
+          {workExperience.map((job: WorkExperience, index: number) => (
             <motion.div
               key={job.company}
               initial={{ opacity: 0, y: 20 }}
@@ -335,7 +344,7 @@ export default function Home() {
               <p className="text-lg mb-2">{job.position}</p>
               <p className="text-muted-foreground mb-4">{job.location}</p>
               <div className="flex flex-wrap gap-2 mb-4">
-                {job.skills.map((skill) => (
+                {job.skills.map((skill: string) => (
                   <span
                     key={skill}
                     className="px-2 py-1 text-sm rounded-full bg-primary/10 text-primary"
@@ -345,7 +354,7 @@ export default function Home() {
                 ))}
               </div>
               <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                {job.description.map((item) => (
+                {job.description.map((item: string) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>

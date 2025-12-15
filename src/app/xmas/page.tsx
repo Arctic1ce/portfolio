@@ -122,7 +122,7 @@ export default function XMasCard() {
             <p
               className={`text-[#d8cfc4] max-w-md mx-auto leading-relaxed ${mountains.className}`}
             >
-              Sorry, you don't have a card...
+              Sorry, you don&apos;t have a card...
             </p>
           )}
         </div>
